@@ -9,7 +9,7 @@ const Settings = () => {
   const [draggedIndex, setDraggedIndex] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/images")
+    axios.get("https://text-editor-backend.onrender.com/api/images")
       .then(response => setImages(response.data))
       .catch(error => console.error("Error fetching images:", error));
   }, []);
@@ -29,7 +29,7 @@ const Settings = () => {
     formData.append("description", description);
 
 
-   await axios.post("http://localhost:5000/api/images/upload", formData)
+   await axios.post("https://text-editor-backend.onrender.com/api/images/upload", formData)
    setImages([...images, response.data])
 
    setFile(null);
@@ -45,7 +45,7 @@ const Settings = () => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/images/${id}`)
+    axios.delete(`https://text-editor-backend.onrender.com/api/images/${id}`)
       .then(() => setImages(images.filter(img => img._id !== id)))
       .catch(error => console.error("Error deleting image:", error));
   };
@@ -77,7 +77,7 @@ const Settings = () => {
       order: index,
     }));
 
-    axios.put("http://localhost:5000/api/images/order", { updatedImages })
+    axios.put("https://text-editor-backend.onrender.com/api/images/order", { updatedImages })
       .then(() => alert("Image order updated successfully!"))
       .catch(error => console.error("Error updating order:", error));
   };
