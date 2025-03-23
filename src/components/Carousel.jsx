@@ -8,7 +8,7 @@ const Carousel = () => {
 
   const fetchImages = async () => {
     try {
-      const allImages = await axios.get("https://text-editor-backend.onrender.com/api/images/");
+      const allImages = await axios.get("https://carousel-backend-ottonomy.onrender.com/api/images/");
       console.log("this is all images", allImages.data);
       setImages(allImages.data || []);
     } catch (error) {
@@ -40,7 +40,7 @@ const Carousel = () => {
           <div className="position-relative d-inline-block">
             {/* Carousel Image */}
             <img 
-              src={`https://text-editor-backend.onrender.com/${images[currentIndex]?.imageUrl}`} 
+              src={`https://carousel-backend-ottonomy.onrender.com/${images[currentIndex]?.imageUrl}`} 
               alt={images[currentIndex].title} 
               className="img-fluid rounded shadow mb-3" 
               style={{ maxWidth: "600px", height: "auto" }} 

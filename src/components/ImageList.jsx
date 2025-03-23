@@ -2,7 +2,7 @@ import React from "react";
 
 const ImageList = ({ images, setImages }) => {
   const handleDelete = async (id) => {
-    await fetch(`https://text-editor-backend.onrender.com/api/images/${id}`, { method: "DELETE" });
+    await fetch(`https://carousel-backend-ottonomy.onrender.com/api/images/${id}`, { method: "DELETE" });
     setImages(images.filter((img) => img._id !== id));
   };
 
